@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+editor:
+  preview: false
+
+collections:
+  - name: "site_content"
+    label: "Website Content"
+    files:
+
+      - name: "hero"
+        label: "🏠 Hero Section (Top of page)"
+        file: "content.json"
+        format: "json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Small Tag Line", name: "eyebrow", widget: "string" }
+              - { label: "Main Headline", name: "headline", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - { label: "Primary Button Text", name: "button_primary", widget: "string" }
+              - { label: "Secondary Button Text", name: "button_secondary", widget: "string" }
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Section Label", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "First Paragraph", name: "paragraph1", widget: "text" }
+              - { label: "Second Paragraph", name: "paragraph2", widget: "text" }
+          - label: "Services Section"
+            name: "services"
+            widget: "object"
+            fields:
+              - { label: "Section Label", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Service Cards"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Icon (emoji)", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "object"
+            fields:
+              - { label: "Section Label", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Testimonial Cards"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Quote", name: "quote", widget: "text" }
+                  - { label: "Person's Name", name: "name", widget: "string" }
+                  - { label: "Their Role / Title", name: "role", widget: "string" }
+                  - { label: "Initial (single letter for avatar)", name: "initial", widget: "string" }
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Phone Number", name: "phone", widget: "string" }
+              - { label: "Phone Hours", name: "phone_hours", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - { label: "Address Line 1", name: "address_line1", widget: "string" }
+              - { label: "Address Line 2 (City, Postcode)", name: "address_line2", widget: "string" }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Footer Description", name: "description", widget: "text" }
