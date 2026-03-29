@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" fill="none">
+  <!-- Roof -->
+  <polyline points="12,90 100,18 188,90" stroke="#F2A61D" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left wall -->
+  <line x1="38" y1="78" x2="38" y2="162" stroke="#F2A61D" stroke-width="13" stroke-linecap="round"/>
+  <!-- Right wall -->
+  <line x1="162" y1="78" x2="162" y2="162" stroke="#F2A61D" stroke-width="13" stroke-linecap="round"/>
+  <!-- Heart -->
+  <path d="M100,155 C100,155 52,126 52,98 C52,82 64,72 76,72 C86,72 94,78 100,86 C106,78 114,72 124,72 C136,72 148,82 148,98 C148,126 100,155 100,155 Z" stroke="#F2A61D" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
