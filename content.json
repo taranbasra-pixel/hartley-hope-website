@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "Supported Living with Heart",
+    "headline": "Everyone deserves a place to call home",
+    "subtext": "Hartley Hope CIC provides high-quality supported accommodation and personalised care, empowering adults to live independently and reach their full potential.",
+    "button_primary": "Make a Referral",
+    "button_secondary": "Learn More"
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "headline": "People at the heart of everything we do",
+    "paragraph1": "Hartley Hope CIC was founded with a simple but powerful belief: everyone deserves a safe, stable home and the right support to build the life they want.",
+    "paragraph2": "As a Community Interest Company, our surplus is reinvested directly into improving our accommodation and services. We work closely with local authorities, NHS partners, and social care teams to deliver consistent, compassionate support."
+  },
+  "services": {
+    "eyebrow": "What We Offer",
+    "headline": "Our Services",
+    "subtext": "From move-in to move-on, wrap-around support at every stage of a resident's journey.",
+    "items": [
+      {"icon": "🏠", "title": "Supported Accommodation", "description": "Safe, fully furnished properties tailored for adults who need a stable home alongside structured support to develop daily living skills."},
+      {"icon": "👥", "title": "Key Working & Mentoring", "description": "Each resident is assigned a dedicated key worker providing regular one-to-one sessions, goal setting, and practical assistance."},
+      {"icon": "📋", "title": "Support Planning", "description": "Personalised support plans created in collaboration with each resident, their family, and professionals — reviewed regularly."},
+      {"icon": "🎓", "title": "Life Skills Development", "description": "Cooking, budgeting, tenancy management, and social skills — building capabilities needed for independent living."},
+      {"icon": "🧠", "title": "Wellbeing Support", "description": "Our team supports residents with mental health needs, working alongside NHS and community services for joined-up care."},
+      {"icon": "🚀", "title": "Move-On Support", "description": "When residents are ready, we help them access social housing, private renting, or other pathways — a smooth, confident transition."}
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Stories",
+    "headline": "What people say about us",
+    "subtext": "Hear from residents and professionals who have experienced Hartley Hope first-hand.",
+    "items": [
+      {"quote": "Moving into Hartley Hope was a turning point. I finally had stability, and my key worker helped me believe I could manage on my own. I've now got my own flat.", "name": "Jamie, Former Resident", "role": "Moved on to independent tenancy", "initial": "J"},
+      {"quote": "As a social worker, I've referred several clients here. The team is responsive, communicative, and genuinely cares about outcomes. Exactly the kind of provider we need.", "name": "Sarah T.", "role": "Senior Social Worker", "initial": "S"},
+      {"quote": "My son was struggling before Hartley Hope. Within a few months his confidence had grown so much. The staff treated him with such dignity — it made all the difference.", "name": "Michelle, Parent", "role": "Family of a current resident", "initial": "M"}
+    ]
+  },
+  "contact": {
+    "phone": "0800 000 0000",
+    "phone_hours": "Mon–Fri, 9am–5pm",
+    "email": "info@hartleyhope.co.uk",
+    "address_line1": "Your address here",
+    "address_line2": "City, Postcode"
+  },
+  "footer": {
+    "description": "Providing safe, supported accommodation and person-centred care for adults. Empowering people to live independently and with dignity."
+  }
+}
