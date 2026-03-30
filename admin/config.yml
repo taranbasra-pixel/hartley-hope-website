@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: taranbasra-pixel/hartley-hope-website
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: "images"
 public_folder: "/images"
@@ -14,7 +17,7 @@ collections:
     files:
 
       - name: "hero"
-        label: "🏠 Hero Section (Top of page)"
+        label: "ð  Hero Section (Top of page)"
         file: "content.json"
         format: "json"
         fields:
