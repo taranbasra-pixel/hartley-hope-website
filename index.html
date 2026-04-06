@@ -625,8 +625,7 @@
     <div class="about-grid">
       <div class="about-visual">
         <div class="about-photo">
-          <span class="about-photo-icon">🏡</span>
-          <span>Add your photo here</span>
+          <img src="logo.svg" alt="Hartley Hope CIC" style="width:62%;max-width:260px;opacity:0.9;" />
         </div>
         <div class="about-badge"><div class="badge-big">100%</div><div class="badge-label">Person-Centred</div></div>
       </div>
@@ -721,17 +720,19 @@
       </div>
       <div class="form-panel">
         <h3>Make a Referral</h3>
-        <form>
+        <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="referral" />
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="field-row">
-            <div class="field"><label>First Name *</label><input type="text" placeholder="Jane" required /></div>
-            <div class="field"><label>Last Name *</label><input type="text" placeholder="Smith" required /></div>
+            <div class="field"><label>First Name *</label><input type="text" name="first-name" placeholder="Jane" required /></div>
+            <div class="field"><label>Last Name *</label><input type="text" name="last-name" placeholder="Smith" required /></div>
           </div>
-          <div class="field"><label>Organisation / Role</label><input type="text" placeholder="e.g. Social Worker, NHS" /></div>
-          <div class="field"><label>Email Address *</label><input type="email" placeholder="jane@example.com" required /></div>
+          <div class="field"><label>Organisation / Role</label><input type="text" name="organisation" placeholder="e.g. Social Worker, NHS" /></div>
+          <div class="field"><label>Email Address *</label><input type="email" name="email" placeholder="jane@example.com" required /></div>
           <div class="field"><label>Phone Number</label><input type="tel" placeholder="07700 900 000" /></div>
           <div class="field">
             <label>Nature of Enquiry</label>
-            <select>
+            <select name="enquiry-type">
               <option value="">Select…</option>
               <option>Referral for a client / service user</option>
               <option>Enquiry for myself or a family member</option>
@@ -739,7 +740,7 @@
               <option>Commissioning / partnership</option>
             </select>
           </div>
-          <div class="field"><label>Brief Details</label><textarea placeholder="Share any relevant background…"></textarea></div>
+          <div class="field"><label>Brief Details</label><textarea name="details" placeholder="Share any relevant background…"></textarea></div>
           <button type="submit" class="btn-submit">Send Referral &rarr;</button>
         </form>
       </div>
@@ -860,15 +861,17 @@
         <div class="ll-form-panel">
           <h3>Landlord Enquiry</h3>
           <p class="form-intro">Interested in partnering with us? Tell us a little about yourself and your property and we'll be in touch within 2 working days.</p>
-          <form>
+          <form name="landlord-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="landlord-enquiry" />
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
             <div class="field-row">
-              <div class="field"><label>First Name *</label><input type="text" placeholder="e.g. David" required /></div>
-              <div class="field"><label>Last Name *</label><input type="text" placeholder="e.g. Hughes" required /></div>
+              <div class="field"><label>First Name *</label><input type="text" name="first-name" placeholder="e.g. David" required /></div>
+              <div class="field"><label>Last Name *</label><input type="text" name="last-name" placeholder="e.g. Hughes" required /></div>
             </div>
-            <div class="field"><label>Email Address *</label><input type="email" placeholder="you@example.com" required /></div>
+            <div class="field"><label>Email Address *</label><input type="email" name="email" placeholder="you@example.com" required /></div>
             <div class="field"><label>Phone Number</label><input type="tel" placeholder="07700 900 000" /></div>
             <div class="field"><label>Are you a…</label>
-              <select>
+              <select name="landlord-type">
                 <option value="">Select…</option>
                 <option>Private landlord (individual)</option>
                 <option>Letting agent / property management company</option>
@@ -879,7 +882,7 @@
             </div>
             <div class="field-row">
               <div class="field"><label>Number of bedrooms</label>
-                <select>
+                <select name="bedrooms">
                   <option value="">Select…</option>
                   <option>2 bedrooms</option>
                   <option>3 bedrooms</option>
@@ -889,7 +892,7 @@
                 </select>
               </div>
               <div class="field"><label>Property type</label>
-                <select>
+                <select name="property-type">
                   <option value="">Select…</option>
                   <option>House</option>
                   <option>Bungalow</option>
@@ -899,8 +902,8 @@
                 </select>
               </div>
             </div>
-            <div class="field"><label>Property location / area</label><input type="text" placeholder="e.g. Skegness, Spalding, Boston…" /></div>
-            <div class="field"><label>Anything else you'd like to tell us?</label><textarea placeholder="e.g. current condition, how soon available, any questions…"></textarea></div>
+            <div class="field"><label>Property location / area</label><input type="text" name="location" placeholder="e.g. Skegness, Spalding, Boston…" /></div>
+            <div class="field"><label>Anything else you'd like to tell us?</label><textarea name="message" placeholder="e.g. current condition, how soon available, any questions…"></textarea></div>
             <button type="submit" class="btn-submit">Send Enquiry &rarr;</button>
           </form>
         </div>
@@ -952,7 +955,6 @@
         <h4>Contact</h4>
         <div class="fcontact"><span>📞</span><span data-field="footer-phone">0800 000 0000<br/><small data-field="footer-hours">Mon–Fri, 9am–5pm</small></span></div>
         <div class="fcontact"><span>✉️</span><span data-field="footer-email">info@hartleyhope.co.uk</span></div>
-        <div class="fcontact"><span>📍</span><span><span data-field="footer-address1">Your address,</span><br/><span data-field="footer-address2">City, Postcode</span></span></div>
       </div>
     </div>
     <div class="footer-bottom">
