@@ -1,1 +1,1185 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hartley Hope CIC – Supported Living with Heart</title>
+  <meta name="description" content="Hartley Hope CIC provides high-quality supported living and accommodation for adults, empowering individuals to live independently with the right support." />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:       #1B5446;
+      --green-dark:  #123a30;
+      --green-mid:   #1e6b56;
+      --green-light: #e6f2ee;
+      --green-pale:  #f2f9f6;
+      --gold:        #F2A61D;
+      --gold-light:  #fdf4e0;
+      --gold-pale:   #fffaf0;
+      --gold-dark:   #d4900a;
+      --cream:       #faf7f2;
+      --white:       #ffffff;
+      --text:        #1a2a24;
+      --text-light:  #5e7a6e;
+      --border:      #e2ece7;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.2; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(250,247,242,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(27,84,70,0.09); }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; height: 76px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .nav-logo-name { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--green); }
+    .nav-logo-sub { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      color: var(--text-light); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .btn-nav {
+      background: var(--gold); color: #fff !important;
+      padding: 11px 24px; border-radius: 80px;
+      font-size: 14px; font-weight: 600 !important;
+      transition: all 0.2s;
+    }
+    .btn-nav:hover { background: var(--gold-dark) !important; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(242,166,29,0.35); }
+    .hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; flex-direction: column;
+      justify-content: space-between;
+      width: 28px; height: 20px; padding: 0;
+    }
+    .hamburger span { display: block; width: 100%; height: 2.5px; background: var(--green); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 76px; left: 0; right: 0; bottom: 0;
+      background: var(--cream); z-index: 999;
+      flex-direction: column; align-items: center;
+      justify-content: center; gap: 30px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--green); }
+
+    /* ── BUTTONS ─────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 80px;
+      font-size: 15px; font-weight: 600;
+      border: 2px solid transparent; cursor: pointer;
+      transition: all 0.25s; letter-spacing: 0.01em;
+    }
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-gold:hover { background: var(--gold-dark); box-shadow: 0 8px 24px rgba(242,166,29,0.38); transform: translateY(-1px); }
+    .btn-outline { background: transparent; border-color: var(--green); color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: #fff; }
+    .btn-white-outline { background: transparent; border-color: rgba(255,255,255,0.45); color: #fff; }
+    .btn-white-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,84,70,0.28); }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      padding-top: 76px; min-height: auto;
+      display: flex; align-items: center;
+      background: var(--cream); position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; top: -15%; right: -8%;
+      width: 54%; height: 130%;
+      background: var(--green);
+      border-radius: 0 0 0 42%;
+      z-index: 0;
+    }
+    .hero-bg::before {
+      content: ''; position: absolute;
+      top: 18%; left: -70px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(242,166,29,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
+      position: relative; z-index: 1; padding: 60px 0;
+    }
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold-dark); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--green); margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-lead {
+      font-size: 17px; color: var(--text-light);
+      max-width: 460px; margin-bottom: 40px; font-weight: 400;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-right { display: flex; justify-content: center; align-items: center; }
+    .hero-card {
+      background: rgba(255,255,255,0.13);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px; padding: 38px 30px;
+      width: 100%; max-width: 390px; color: #fff;
+    }
+    .hero-card-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 26px;
+    }
+    .hero-features { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .hero-feat { display: flex; gap: 14px; align-items: flex-start; }
+    .feat-icon {
+      width: 42px; height: 42px;
+      background: rgba(242,166,29,0.2); border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px; flex-shrink: 0;
+    }
+    .feat-text strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 1px; }
+    .feat-text span { font-size: 12px; color: rgba(255,255,255,0.68); }
+    .hero-stats {
+      display: flex; gap: 24px;
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+    .hero-stat { text-align: center; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--gold); line-height: 1.1; }
+    .stat-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.7); }
+
+    /* ── MARQUEE ─────────────────────────────── */
+    .marquee { background: var(--green); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+    .marquee-track { display: flex; gap: 48px; animation: scroll 28s linear infinite; }
+    .m-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.82); font-size: 13px; font-weight: 500; flex-shrink: 0; }
+    .m-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTIONS ────────────────────────────── */
+    section { padding: 72px 0; }
+    .eyebrow {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold-dark); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--gold); }
+    .sec-title { font-size: clamp(26px, 3vw, 36px); color: var(--green); margin-bottom: 14px; letter-spacing: -0.01em; }
+    .sec-lead { font-size: 17px; color: var(--text-light); max-width: 560px; line-height: 1.75; }
+    .sec-hd { margin-bottom: 44px; }
+    .sec-center { text-align: center; }
+    .sec-center .eyebrow { justify-content: center; }
+    .sec-center .sec-lead { margin: 0 auto; }
+
+    /* ── ABOUT ───────────────────────────────── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+    .about-visual { position: relative; }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--green-light), #cce4da);
+      border-radius: 24px; display: flex;
+      flex-direction: column; align-items: center;
+      justify-content: center; gap: 10px;
+      color: var(--text-light); font-size: 14px;
+    }
+    .about-photo-icon { font-size: 52px; opacity: 0.35; }
+    .about-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--gold); color: #fff;
+      padding: 20px 24px; border-radius: 18px;
+      box-shadow: 0 12px 32px rgba(242,166,29,0.3); text-align: center;
+    }
+    .badge-big { font-family: 'DM Serif Display', serif; font-size: 34px; line-height: 1; }
+    .badge-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px; opacity: 0.9; }
+    .about-text p { font-size: 16px; color: var(--text-light); margin-bottom: 14px; line-height: 1.8; }
+    .vals { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 32px; }
+    .val {
+      background: var(--green-pale); border-radius: 13px;
+      padding: 16px 18px; display: flex;
+      align-items: center; gap: 12px; transition: box-shadow 0.2s;
+    }
+    .val:hover { box-shadow: 0 4px 16px rgba(27,84,70,0.08); }
+    .val-emoji { font-size: 22px; flex-shrink: 0; }
+    .val-name { font-size: 14px; font-weight: 600; color: var(--green); }
+    .val-desc { font-size: 12px; color: var(--text-light); }
+
+    /* ── SERVICES ────────────────────────────── */
+    #services { background: var(--cream); }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .svc {
+      background: var(--white); border-radius: 20px;
+      padding: 34px 26px 30px; border: 1px solid var(--border);
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .svc::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s;
+    }
+    .svc:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(27,84,70,0.1); }
+    .svc:hover::before { transform: scaleX(1); }
+    .svc-icon {
+      width: 54px; height: 54px; background: var(--gold-pale);
+      border-radius: 15px; display: flex; align-items: center;
+      justify-content: center; font-size: 25px; margin-bottom: 20px;
+    }
+    .svc h3 { font-size: 19px; color: var(--green); margin-bottom: 10px; }
+    .svc p { font-size: 14px; color: var(--text-light); line-height: 1.75; }
+
+    /* ── SUPPORT ─────────────────────────────── */
+    #support { background: var(--green); position: relative; overflow: hidden; }
+    #support::before {
+      content: ''; position: absolute;
+      top: -80px; right: -80px; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(242,166,29,0.13) 0%, transparent 70%); border-radius: 50%;
+    }
+    #support .eyebrow { color: var(--gold); }
+    #support .eyebrow::before { background: var(--gold); }
+    #support .sec-title { color: #fff; }
+    #support .sec-lead { color: rgba(255,255,255,0.7); }
+    .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+    .sup-panel {
+      background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.13);
+      backdrop-filter: blur(12px); border-radius: 24px; padding: 38px 30px; transition: background 0.2s;
+    }
+    .sup-panel:hover { background: rgba(255,255,255,0.14); }
+    .sup-icon { font-size: 38px; margin-bottom: 18px; }
+    .sup-panel h3 { font-size: 22px; color: var(--gold); margin-bottom: 12px; }
+    .sup-panel > p { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 22px; line-height: 1.7; }
+    .chh-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .chk-list li { display: flex; align-items: flex-start; gap: 11px; font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+    .chk {
+      width: 20px; height: 20px; background: rgba(242,166,29,0.25);
+      border-radius: 6px; display: flex; align-items: center;
+      justify-content: center; color: var(--gold);
+      font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* ── REFER ───────────────────────────────── */
+    #refer { background: var(--cream); }
+    .refer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+    .steps { list-style: none; display: flex; flex-direction: column; }
+    .step { display: flex; gap: 20px; padding-bottom: 34px; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step:not(:last-child)::after {
+      content: ''; position: absolute;
+      left: 18px; top: 44px; width: 2px;
+      height: calc(100% - 44px); background: var(--border);
+    }
+    .step-n {
+      width: 38px; height: 38px; background: var(--gold);
+      color: #fff; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .step-b h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--green); margin-bottom: 5px; padding-top: 7px; }
+    .step-b p { font-size: 14px; color: var(--text-light); line-height: 1.65; }
+    .form-panel {
+      background: var(--white); border-radius: 22px; padding: 38px 34px;
+      border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(27,84,70,0.06);
+    }
+    .form-panel h3 { font-size: 22px; color: var(--green); margin-bottom: 26px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 5px; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 15px;
+      border: 1.5px solid var(--border); border-radius: 11px;
+      font-size: 14px; font-family: 'DM Sans', sans-serif;
+      color: var(--text); background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none; appearance: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--green); box-shadow: 0 0 0 4px rgba(27,84,70,0.08); background: #fff;
+    }
+    .field textarea { resize: vertical; min-height: 100px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .btn-submit {
+      width: 100%; background: var(--green); color: #fff; border: none;
+      padding: 14px; border-radius: 80px; font-size: 15px; font-weight: 600;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      transition: all 0.25s; margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,84,70,0.24); }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer { background: var(--green-dark); color: rgba(255,255,255,0.78); padding: 68px 0 28px; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 36px; padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 22px;
+    }
+    .footer-logo { height: 80px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: 0.9; }
+    .footer-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.52); margin-bottom: 18px; }
+    .socials { display: flex; gap: 8px; }
+    .soc {
+      width: 34px; height: 34px; background: rgba(255,255,255,0.09);
+      border-radius: 9px; display: flex; align-items: center;
+      justify-content: center; font-size: 13px; font-weight: 700;
+      color: rgba(255,255,255,0.55); transition: all 0.2s; cursor: pointer;
+    }
+    .soc:hover { background: var(--gold); color: #fff; }
+    .footer-col h4 {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase; color: #fff; margin-bottom: 18px;
+    }
+    .flinks { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .flinks a { font-size: 14px; color: rgba(255,255,255,0.52); transition: color 0.2s; }
+    .flinks a:hover { color: var(--gold); }
+    .fcontact { display: flex; gap: 9px; margin-bottom: 14px; font-size: 14px; color: rgba(255,255,255,0.52); }
+    .fcontact span:first-child { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      font-size: 12px; color: rgba(255,255,255,0.28);
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.38); }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ── FLOATING CTA ────────────────────────── */
+    .float-cta {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
+      background: var(--gold); color: #fff;
+      padding: 13px 22px; border-radius: 80px;
+      font-size: 14px; font-weight: 700;
+      box-shadow: 0 8px 28px rgba(242,166,29,0.4);
+      transition: all 0.25s; display: flex; align-items: center; gap: 7px;
+    }
+    .float-cta:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(242,166,29,0.5); }
+
+    /* ── CHAT WIDGET ─────────────────────────── */
+    .chat-btn {
+      position: fixed; bottom: 88px; right: 28px; z-index: 950;
+      width: 58px; height: 58px; background: var(--green);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; cursor: pointer;
+      box-shadow: 0 8px 26px rgba(27,84,70,0.35);
+      border: none; transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .chat-btn:hover { transform: scale(1.08); }
+    .chat-btn svg { width: 26px; height: 26px; fill: #fff; }
+    .chat-btn .ico-close { display: none; }
+    .chat-btn.open .ico-chat { display: none; }
+    .chat-btn.open .ico-close { display: block; }
+    .chat-badge {
+      position: absolute; top: -4px; right: -4px;
+      background: var(--gold); color: #fff;
+      font-size: 10px; font-weight: 700;
+      width: 19px; height: 19px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--cream);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+    .chat-win {
+      position: fixed; bottom: 162px; right: 28px; z-index: 950;
+      width: 355px; background: #fff; border-radius: 22px;
+      box-shadow: 0 20px 56px rgba(27,84,70,0.17);
+      display: flex; flex-direction: column; overflow: hidden;
+      max-height: 510px;
+      transform: scale(0.86) translateY(18px);
+      transform-origin: bottom right;
+      opacity: 0; pointer-events: none;
+      transition: all 0.32s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .chat-win.open { opacity: 1; transform: scale(1) translateY(0); pointer-events: all; }
+    .chat-hd {
+      background: var(--green); padding: 16px 18px;
+      display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+    }
+    .chat-av {
+      width: 40px; height: 40px; background: rgba(255,255,255,0.14);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .chat-hd-name { font-weight: 700; font-size: 14px; color: #fff; }
+    .chat-hd-status { font-size: 12px; color: rgba(255,255,255,0.72); display: flex; align-items: center; gap: 5px; }
+    .online-dot { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; }
+    .chat-msgs {
+      flex: 1; overflow-y: auto; padding: 18px 14px;
+      display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth;
+    }
+    .chat-msgs::-webkit-scrollbar { width: 3px; }
+    .chat-msgs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .msg { display: flex; gap: 7px; align-items: flex-end; max-width: 90%; }
+    .msg.bot { align-self: flex-start; }
+    .msg.usr { align-self: flex-end; flex-direction: row-reverse; }
+    .msg-av { width: 26px; height: 26px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .msg-bub { padding: 10px 13px; border-radius: 16px; font-size: 13px; line-height: 1.55; }
+    .msg.bot .msg-bub { background: var(--cream); color: var(--text); border-bottom-left-radius: 5px; }
+    .msg.usr .msg-bub { background: var(--green); color: #fff; border-bottom-right-radius: 5px; }
+    .qr { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 12px; }
+    .qr-btn {
+      background: var(--green-light); color: var(--green);
+      border: 1px solid var(--border); border-radius: 50px;
+      padding: 6px 13px; font-size: 12px; font-weight: 600;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.18s;
+    }
+    .qr-btn:hover { background: var(--green); color: #fff; border-color: var(--green); }
+    .typing-wrap { display: flex; gap: 5px; padding: 10px 13px; background: var(--cream); border-radius: 16px; border-bottom-left-radius: 5px; width: fit-content; }
+    .typing-wrap span { width: 6px; height: 6px; background: var(--text-light); border-radius: 50%; animation: bounce 1.1s infinite; }
+    .typing-wrap span:nth-child(2) { animation-delay: 0.18s; }
+    .typing-wrap span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+    .chat-input-row {
+      display: flex; gap: 7px; padding: 10px 12px 14px;
+      border-top: 1px solid var(--border); flex-shrink: 0;
+    }
+    .chat-inp {
+      flex: 1; border: 1.5px solid var(--border); border-radius: 50px;
+      padding: 9px 14px; font-size: 13px; font-family: 'DM Sans', sans-serif;
+      outline: none; color: var(--text); transition: border-color 0.2s;
+    }
+    .chat-inp:focus { border-color: var(--green); }
+    .chat-send {
+      width: 36px; height: 36px; background: var(--gold);
+      border: none; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    }
+    .chat-send:hover { background: var(--gold-dark); }
+    .chat-send svg { width: 15px; height: 15px; fill: #fff; }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; padding: 50px 0 40px; }
+      .hero-bg { display: none; }
+      .hero h1 { font-size: 38px; }
+      .hero-right { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .support-grid { grid-template-columns: 1fr; }
+      .refer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 48px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .vals, .field-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .float-cta, .chat-btn { right: 14px; }
+      .float-cta { bottom: 16px; }
+      .chat-btn { bottom: 78px; }
+      .chat-win { width: calc(100vw - 20px); right: 10px; bottom: 146px; }
+    }
+
+    /* ── LANDLORDS ───────────────────────────── */
+    #landlords { background: var(--white); }
+    .ll-offers-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 52px; }
+    .ll-offer { background: var(--green-pale); border: 1px solid var(--border); border-radius: 16px; padding: 24px 20px; display: flex; flex-direction: column; gap: 4px; transition: box-shadow 0.2s; }
+    .ll-offer:hover { box-shadow: 0 6px 24px rgba(27,84,70,0.1); }
+    .ll-main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-bottom: 52px; align-items: start; }
+    .ll-box { background: var(--cream); border-radius: 18px; padding: 28px 26px; margin-bottom: 16px; }
+    .ll-approach { background: var(--green-pale); border-radius: 18px; padding: 30px 32px; margin-bottom: 52px; border-left: 4px solid var(--gold); }
+    .ll-bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-bottom: 52px; align-items: start; }
+    .ll-areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ll-area { background: var(--green-light); border-radius: 12px; padding: 14px 16px; font-size: 14px; font-weight: 500; color: var(--green); display: flex; align-items: center; gap: 8px; }
+    .faq { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--cream); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; }
+    .faq-q { padding: 17px 20px; font-weight: 600; font-size: 14px; color: var(--green); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-q::after { content: '+'; font-size: 20px; color: var(--gold); transition: transform 0.25s; line-height: 1; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; font-size: 14px; color: var(--text-light); line-height: 1.7; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 20px 17px; }
+    .ll-form-panel { background: var(--cream); border-radius: 24px; padding: 40px 38px; border: 1px solid var(--border); }
+    .ll-form-panel h3 { font-size: 24px; color: var(--green); margin-bottom: 8px; }
+    .ll-form-panel .form-intro { font-size: 14px; color: var(--text-light); margin-bottom: 28px; line-height: 1.6; }
+    .ll-cta-block { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%); border-radius: 24px; padding: 52px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; position: relative; overflow: hidden; }
+    .ll-cta-block::before { content: ''; position: absolute; width: 340px; height: 340px; border-radius: 50%; background: rgba(255,255,255,0.04); top: -80px; right: -80px; pointer-events: none; }
+    @media(max-width:700px) {
+      .ll-offers-grid { grid-template-columns: 1fr; }
+      .ll-main-grid, .ll-bottom-grid { grid-template-columns: 1fr; gap: 24px; }
+      .ll-cta-block { padding: 36px 24px; }
+      .ll-form-panel { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="logo.svg" alt="Hartley Hope CIC logo" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Hartley Hope</span>
+          <span class="nav-logo-sub">CIC</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#support">Who We Support</a></li>
+        <li><a href="#landlords">For Landlords</a></li>
+        <li><a href="#refer" class="btn-nav">Make a Referral</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#support" onclick="closeMobile()">Who We Support</a>
+  <a href="#landlords" onclick="closeMobile()">For Landlords</a>
+  <a href="#refer" onclick="closeMobile()">Make a Referral</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow" data-field="hero-eyebrow">Supported Living with Heart</div>
+        <h1 data-field="hero-headline">Everyone deserves a place to call <em>home</em></h1>
+        <p class="hero-lead" data-field="hero-subtext">Hartley Hope CIC provides high-quality supported accommodation and personalised care, empowering adults to live independently and reach their full potential.</p>
+        <div class="hero-btns">
+          <a href="#refer" class="btn btn-gold">Make a Referral &rarr;</a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <p class="hero-card-label">Why Hartley Hope</p>
+          <ul class="hero-features">
+            <li class="hero-feat"><div class="feat-icon">🏠</div><div class="feat-text"><strong>Safe, Quality Homes</strong><span>Fully furnished, warm accommodation</span></div></li>
+            <li class="hero-feat"><div class="feat-icon">🤝</div><div class="feat-text"><strong>Dedicated Key Workers</strong><span>Consistent, trusted support from day one</span></div></li>
+            <li class="hero-feat"><div class="feat-icon">📋</div><div class="feat-text"><strong>Person-Centred Plans</strong><span>Support built around individual goals</span></div></li>
+            <li class="hero-feat"><div class="feat-icon">🌱</div><div class="feat-text"><strong>Move-On Ready</strong><span>Building skills for long-term independence</span></div></li>
+          </ul>
+          <div class="hero-stats">
+            <div class="hero-stat"><div class="stat-num">24/7</div><div class="stat-label">On-Call</div></div>
+            <div class="hero-stat"><div class="stat-num">48h</div><div class="stat-label">Referral Response</div></div>
+            <div class="hero-stat"><div class="stat-num">CIC</div><div class="stat-label">Not-for-Profit</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="m-item"><span class="m-dot"></span>DBS Checked Staff</span>
+    <span class="m-item"><span class="m-dot"></span>Community Interest Company</span>
+    <span class="m-item"><span class="m-dot"></span>24/7 On-Call Support</span>
+    <span class="m-item"><span class="m-dot"></span>Person-Centred Care</span>
+    <span class="m-item"><span class="m-dot"></span>Multi-Agency Approach</span>
+    <span class="m-item"><span class="m-dot"></span>Safe &amp; Supportive Homes</span>
+    <span class="m-item"><span class="m-dot"></span>DBS Checked Staff</span>
+    <span class="m-item"><span class="m-dot"></span>Community Interest Company</span>
+    <span class="m-item"><span class="m-dot"></span>24/7 On-Call Support</span>
+    <span class="m-item"><span class="m-dot"></span>Person-Centred Care</span>
+    <span class="m-item"><span class="m-dot"></span>Multi-Agency Approach</span>
+    <span class="m-item"><span class="m-dot"></span>Safe &amp; Supportive Homes</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-photo">
+          <span class="about-photo-icon">🏡</span>
+          <span>Add your photo here</span>
+        </div>
+        <div class="about-badge"><div class="badge-big">100%</div><div class="badge-label">Person-Centred</div></div>
+      </div>
+      <div>
+        <div class="eyebrow" data-field="about-eyebrow">About Us</div>
+        <h2 class="sec-title" data-field="about-headline">People at the heart of everything we do</h2>
+        <div class="about-text">
+          <p data-field="about-p1">Hartley Hope CIC was founded with a simple but powerful belief: everyone deserves a safe, stable home and the right support to build the life they want.</p>
+          <p data-field="about-p2">As a Community Interest Company, our surplus is reinvested directly into improving our accommodation and services. We work closely with local authorities, NHS partners, and social care teams to deliver consistent, compassionate support.</p>
+        </div>
+        <div class="vals">
+          <div class="val"><span class="val-emoji">💛</span><div><div class="val-name">Compassion</div><div class="val-desc">Kindness in every interaction</div></div></div>
+          <div class="val"><span class="val-emoji">🤲</span><div><div class="val-name">Empowerment</div><div class="val-desc">Independence, not dependence</div></div></div>
+          <div class="val"><span class="val-emoji">🔍</span><div><div class="val-name">Transparency</div><div class="val-desc">Open and honest always</div></div></div>
+          <div class="val"><span class="val-emoji">⭐</span><div><div class="val-name">Quality</div><div class="val-desc">High standards, always</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="sec-hd sec-center">
+      <div class="eyebrow" data-field="services-eyebrow">What We Offer</div>
+      <h2 class="sec-title" data-field="services-headline">Our Services</h2>
+      <p class="sec-lead" data-field="services-subtext">From move-in to move-on, wrap-around support at every stage of a resident's journey.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc"><div class="svc-icon">🏠</div><h3>Supported Accommodation</h3><p>Safe, fully furnished properties tailored for adults who need a stable home alongside structured support to develop daily living skills.</p></div>
+      <div class="svc"><div class="svc-icon">👥</div><h3>Key Working &amp; Mentoring</h3><p>Each resident is assigned a dedicated key worker providing regular one-to-one sessions, goal setting, and practical assistance.</p></div>
+      <div class="svc"><div class="svc-icon">📋</div><h3>Support Planning</h3><p>Personalised support plans created in collaboration with each resident, their family, and professionals — reviewed regularly.</p></div>
+      <div class="svc"><div class="svc-icon">🎓</div><h3>Life Skills Development</h3><p>Cooking, budgeting, tenancy management, and social skills — building capabilities needed for independent living.</p></div>
+      <div class="svc"><div class="svc-icon">🧠</div><h3>Wellbeing Support</h3><p>Our team supports residents with mental health needs, working alongside NHS and community services for joined-up care.</p></div>
+      <div class="svc"><div class="svc-icon">🚀</div><h3>Move-On Support</h3><p>When residents are ready, we help them access social housing, private renting, or other pathways — a smooth, confident transition.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SUPPORT -->
+<section id="support">
+  <div class="container">
+    <div class="sec-hd sec-center">
+      <div class="eyebrow">Who We Support</div>
+      <h2 class="sec-title">Here for residents and referrers alike</h2>
+      <p class="sec-lead">Whether you're looking for supported living for yourself, or seeking the right placement for someone in your care.</p>
+    </div>
+    <div class="support-grid">
+      <div class="sup-panel">
+        <div class="sup-icon">🏡</div>
+        <h3>For Residents &amp; Families</h3>
+        <p>We welcome adults who need a safe home and structured support to build their independence.</p>
+        <ul class="chk-list">
+          <li><span class="chk">✓</span>Warm, fully furnished accommodation</li>
+          <li><span class="chk">✓</span>A dedicated key worker from day one</li>
+          <li><span class="chk">✓</span>Help with benefits, appointments &amp; admin</li>
+          <li><span class="chk">✓</span>Access to community activities and training</li>
+          <li><span class="chk">✓</span>Clear pathway toward independent living</li>
+        </ul>
+      </div>
+      <div class="sup-panel">
+        <div class="sup-icon">📁</div>
+        <h3>For Referrers &amp; Professionals</h3>
+        <p>We work with social workers, housing teams, NHS services, and councils to ensure timely, appropriate placements.</p>
+        <ul class="chk-list">
+          <li><span class="chk">✓</span>Fast response — typically within 48 hours</li>
+          <li><span class="chk">✓</span>Experienced team with complex needs</li>
+          <li><span class="chk">✓</span>Regular updates and review meetings</li>
+          <li><span class="chk">✓</span>Clear reporting and documentation</li>
+          <li><span class="chk">✓</span>Collaborative, multi-agency approach</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFER -->
+<section id="refer">
+  <div class="container">
+    <div class="refer-grid">
+      <div>
+        <div class="eyebrow">Get in Touch</div>
+        <h2 class="sec-title">How to make a referral</h2>
+        <p class="sec-lead" style="margin-bottom:44px;">We respond to all referrals within 48 hours. Here's how it works:</p>
+        <ol class="steps">
+          <li class="step"><div class="step-n">1</div><div class="step-b"><h4>Submit a Referral</h4><p>Fill in the form or call us. We just need a brief overview of the person's needs.</p></div></li>
+          <li class="step"><div class="step-n">2</div><div class="step-b"><h4>Initial Assessment</h4><p>We review the referral and contact you within 48 hours to discuss suitability.</p></div></li>
+          <li class="step"><div class="step-n">3</div><div class="step-b"><h4>Property Matching</h4><p>We match the individual to the most suitable property and support package.</p></div></li>
+          <li class="step"><div class="step-n">4</div><div class="step-b"><h4>Move-In &amp; Settle</h4><p>Smooth transition with a welcome meeting, key worker introduction, and support plan from day one.</p></div></li>
+        </ol>
+      </div>
+      <div class="form-panel">
+        <h3>Make a Referral</h3>
+        <form>
+          <div class="field-row">
+            <div class="field"><label>First Name *</label><input type="text" placeholder="Jane" required /></div>
+            <div class="field"><label>Last Name *</label><input type="text" placeholder="Smith" required /></div>
+          </div>
+          <div class="field"><label>Organisation / Role</label><input type="text" placeholder="e.g. Social Worker, NHS" /></div>
+          <div class="field"><label>Email Address *</label><input type="email" placeholder="jane@example.com" required /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" placeholder="07700 900 000" /></div>
+          <div class="field">
+            <label>Nature of Enquiry</label>
+            <select>
+              <option value="">Select…</option>
+              <option>Referral for a client / service user</option>
+              <option>Enquiry for myself or a family member</option>
+              <option>General information</option>
+              <option>Commissioning / partnership</option>
+            </select>
+          </div>
+          <div class="field"><label>Brief Details</label><textarea placeholder="Share any relevant background…"></textarea></div>
+          <button type="submit" class="btn-submit">Send Referral &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDLORDS -->
+<section id="landlords">
+  <div class="container">
+    <div class="sec-hd sec-center" style="margin-bottom:52px;">
+      <div class="eyebrow">For Landlords</div>
+      <h2 class="sec-title">Partner with Hartley Hope</h2>
+      <p class="sec-lead">We work with local landlords to provide stable, long-term tenancies for adults in supported living. You get a reliable income — we handle the rest.</p>
+    </div>
+
+    <!-- What we offer -->
+    <div class="ll-offers-grid">
+      <div class="ll-offer">
+        <div style="font-size:28px;margin-bottom:6px;">🏠</div>
+        <div style="font-weight:700;font-size:15px;color:var(--green);margin-bottom:4px;">Guaranteed Rent</div>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.6;">We pay rent on time, every time — even when the property is between tenants.</p>
+      </div>
+      <div class="ll-offer">
+        <div style="font-size:28px;margin-bottom:6px;">🔑</div>
+        <div style="font-weight:700;font-size:15px;color:var(--green);margin-bottom:4px;">Full Property Management</div>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.6;">We manage day-to-day property matters so you don't have to deal with maintenance calls or tenant issues.</p>
+      </div>
+      <div class="ll-offer">
+        <div style="font-size:28px;margin-bottom:6px;">📋</div>
+        <div style="font-weight:700;font-size:15px;color:var(--green);margin-bottom:4px;">Long-Term Leases</div>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.6;">We typically take leases of 3–5 years, giving you the financial security of a long-term occupancy agreement.</p>
+      </div>
+      <div class="ll-offer">
+        <div style="font-size:28px;margin-bottom:6px;">🛠️</div>
+        <div style="font-weight:700;font-size:15px;color:var(--green);margin-bottom:4px;">Property Upkeep</div>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.6;">We keep properties well-maintained and report back to you regularly. Your asset is in safe hands.</p>
+      </div>
+      <div class="ll-offer">
+        <div style="font-size:28px;margin-bottom:6px;">🤝</div>
+        <div style="font-weight:700;font-size:15px;color:var(--green);margin-bottom:4px;">Ethical Partnership</div>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.6;">You'll be contributing directly to supporting vulnerable adults in your community — making a difference that matters.</p>
+      </div>
+      <div class="ll-offer">
+        <div style="font-size:28px;margin-bottom:6px;">📞</div>
+        <div style="font-weight:700;font-size:15px;color:var(--green);margin-bottom:4px;">Dedicated Liaison</div>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.6;">You'll have a named contact at Hartley Hope — someone you can always reach for updates or questions.</p>
+      </div>
+    </div>
+
+    <!-- How It Works + Property Requirements -->
+    <div class="ll-main-grid">
+      <div>
+        <h3 style="font-size:26px;color:var(--green);margin-bottom:24px;">How It Works</h3>
+        <ol class="steps">
+          <li class="step"><div class="step-n">1</div><div class="step-b"><h4>Get in Touch</h4><p>Fill in the enquiry form or call us. Tell us about your property and what you're looking for.</p></div></li>
+          <li class="step"><div class="step-n">2</div><div class="step-b"><h4>Property Assessment</h4><p>We visit the property and discuss how it could work as a supported living home.</p></div></li>
+          <li class="step"><div class="step-n">3</div><div class="step-b"><h4>Agreement &amp; Setup</h4><p>We agree terms, sign the lease, and prepare the property ready for residents.</p></div></li>
+          <li class="step"><div class="step-n">4</div><div class="step-b"><h4>Ongoing Partnership</h4><p>We manage everything. You receive your rent and regular updates — hassle-free.</p></div></li>
+        </ol>
+      </div>
+      <div>
+        <div class="ll-box">
+          <h4 style="color:var(--green);margin-bottom:14px;font-size:17px;">Property Requirements</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:14px;color:var(--text-light);display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;">✓</span> 2–6 bedroom houses or bungalows</li>
+            <li style="font-size:14px;color:var(--text-light);display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;">✓</span> Located in East Lincolnshire, Boston or South Holland</li>
+            <li style="font-size:14px;color:var(--text-light);display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;">✓</span> Suitable for HMO or single-household supported living use</li>
+            <li style="font-size:14px;color:var(--text-light);display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;">✓</span> Good condition or willing to allow light refurbishment</li>
+            <li style="font-size:14px;color:var(--text-light);display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;">✓</span> Available on a minimum 3-year lease</li>
+          </ul>
+        </div>
+        <div class="ll-box" style="margin-bottom:0;">
+          <h4 style="color:var(--green);margin-bottom:14px;font-size:17px;">Areas We Cover</h4>
+          <div class="ll-areas-grid">
+            <div class="ll-area"><span>�M</span> East Lindsey</div>
+            <div class="ll-area"><span>📍</span> Boston</div>
+            <div class="ll-area"><span>📍</span> South Holland</div>
+            <div class="ll-area"><span>📍</span> Surrounding areas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Approach -->
+    <div class="ll-approach">
+      <h3 style="font-size:22px;color:var(--green);margin-bottom:12px;">Our Approach</h3>
+      <p style="font-size:15px;color:var(--text-light);line-height:1.8;">We believe a good landlord partnership is built on trust, transparency and mutual respect. We treat every property as if it were our own, and we keep you informed every step of the way. Our team is on-hand to deal with any issues quickly — so you never feel left in the dark.</p>
+    </div>
+
+    <!-- FAQ + Enquiry Form -->
+    <div class="ll-bottom-grid">
+      <div>
+        <h3 style="font-size:26px;color:var(--green);margin-bottom:24px;">Common Questions</h3>
+        <div class="faq">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Will my property be well looked after?</div>
+            <div class="faq-a">Yes. We carry out regular property inspections and maintain a detailed log of the property's condition. Any wear and tear is addressed promptly, and we will always notify you before undertaking any work beyond routine maintenance.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What if something goes wrong with a resident?</div>
+            <div class="faq-a">Our trained support staff are present regularly and on call. Any incidents are managed by our team — you won't be contacted about resident-related issues. We handle everything through our own safeguarding and support procedures.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Do I need an HMO licence?</div>
+            <div class="faq-a">It depends on your property and local authority requirements. We'll walk you through exactly what's needed during our initial assessment and can support you through the licensing process if required.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How long are your lease agreements?</div>
+            <div class="faq-a">We typically agree leases of 3 to 5 years, with the option to renew. We're flexible and will discuss the arrangement that works best for you during our initial conversation.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Is this only for landlords with multiple properties?</div>
+            <div class="faq-a">Not at all. We work with individual landlords who own just one property, as well as those with larger portfolios. If your property is a good fit, we'd love to hear from you.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ll-form-panel">
+          <h3>Landlord Enquiry</h3>
+          <p class="form-intro">Interested in partnering with us? Tell us a little about yourself and your property and we'll be in touch within 2 working days.</p>
+          <form>
+            <div class="field-row">
+              <div class="field"><label>First Name *</label><input type="text" placeholder="e.g. David" required /></div>
+              <div class="field"><label>Last Name *</label><input type="text" placeholder="e.g. Hughes" required /></div>
+            </div>
+            <div class="field"><label>Email Address *</label><input type="email" placeholder="you@example.com" required /></div>
+            <div class="field"><label>Phone Number</label><input type="tel" placeholder="07700 900 000" /></div>
+            <div class="field"><label>Are you a…</label>
+              <select>
+                <option value="">Select…</option>
+                <option>Private landlord (individual)</option>
+                <option>Letting agent / property management company</option>
+                <option>Property developer</option>
+                <option>Housing association</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Number of bedrooms</label>
+                <select>
+                  <option value="">Select…</option>
+                  <option>2 bedrooms</option>
+                  <option>3 bedrooms</option>
+                  <option>4 bedrooms</option>
+                  <option>5 bedrooms</option>
+                  <option>6+ bedrooms</option>
+                </select>
+              </div>
+              <div class="field"><label>Property type</label>
+                <select>
+                  <option value="">Select…</option>
+                  <option>House</option>
+                  <option>Bungalow</option>
+                  <option>Flat / Apartment</option>
+                  <option>HMO (already licensed)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label>Property location / area</label><input type="text" placeholder="e.g. Skegness, Spalding, Boston…" /></div>
+            <div class="field"><label>Anything else you'd like to tell us?</label><textarea placeholder="e.g. current condition, how soon available, any questions…"></textarea></div>
+            <button type="submit" class="btn-submit">Send Enquiry &rarr;</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <img src="logo.svg" alt="" style="height:48px;width:auto;filter:brightness(0) invert(1);opacity:0.9;" />
+          <div style="line-height:1.15;">
+            <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;">Hartley Hope</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#F2A61D;">CIC</div>
+          </div>
+        </div>
+        <p class="footer-desc" data-field="footer-desc">Providing safe, supported accommodation and person-centred care for adults. Empowering people to live independently and with dignity.</p>
+        <div class="socials">
+          <div class="soc" title="Facebook">f</div>
+          <div class="soc" title="Instagram">ig</div>
+          <div class="soc" title="LinkedIn">in</div>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul class="flinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#support">Who We Support</a></li>
+          <li><a href="#landlords">For Landlords</a></li>
+          <li><a href="#refer">Make a Referral</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <ul class="flinks">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Safeguarding</a></li>
+          <li><a href="#">Complaints</a></li>
+          <li><a href="#">Equal Opportunities</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="fcontact"><span>📞</span><span data-field="footer-phone">0800 000 0000<br/><small data-field="footer-hours">Mon–Fri, 9am–5pm</small></span></div>
+        <div class="fcontact"><span>✉️</span><span data-field="footer-email">info@hartleyhope.co.uk</span></div>
+        <div class="fcontact"><span>📍</span><span><span data-field="footer-address1">Your address,</span><br/><span data-field="footer-address2">City, Postcode</span></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Hartley Hope CIC. All rights reserved.</span>
+      <a href="#home">Back to top &uarr;</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="#refer" class="float-cta">📞 Contact Us</a>
+
+<!-- CHAT BUTTON -->
+<button class="chat-btn" id="chatBtn" aria-label="Open chat">
+  <span class="chat-badge">1</span>
+  <svg class="ico-chat" viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6V8h12v4z"/></svg>
+  <svg class="ico-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+<!-- CHAT WINDOW -->
+<div class="chat-win" id="chatWin">
+  <div class="chat-hd">
+    <div class="chat-av">🏠</div>
+    <div>
+      <div class="chat-hd-name">Hartley Hope Assistant</div>
+      <div class="chat-hd-status"><span class="online-dot"></span> Online now</div>
+    </div>
+  </div>
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="msg bot"><div class="msg-av">🏠</div><div class="msg-bub">Hi! I'm the Hartley Hope assistant. I can answer questions about our supported living services, who we help, and how to make a referral. How can I help?</div></div>
+  </div>
+  <div class="qr" id="qrBtns">
+    <button class="qr-btn" onclick="sendQ('What services do you offer?')">Our services</button>
+    <button class="qr-btn" onclick="sendQ('How do I make a referral?')">Make a referral</button>
+    <button class="qr-btn" onclick="sendQ('Who do you support?')">Who you support</button>
+    <button class="qr-btn" onclick="sendQ('How much does it cost?')">Costs &amp; funding</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-inp" id="chatInp" type="text" placeholder="Type a message…" />
+    <button class="chat-send" id="chatSend" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 20);
+  });
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+  function closeMobile() { mob.classList.remove('open'); }
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Scroll-in animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.svc, .sup-panel, .val, .step, .ll-offer').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
+
+  // Chat
+  const chatBtn = document.getElementById('chatBtn');
+  const chatWin = document.getElementById('chatWin');
+  const chatMsgs = document.getElementById('chatMsgs');
+  const chatInp = document.getElementById('chatInp');
+  const chatSend = document.getElementById('chatSend');
+  const qrBtns = document.getElementById('qrBtns');
+  const badge = chatBtn.querySelector('.chat-badge');
+
+  chatBtn.addEventListener('click', () => {
+    const open = chatWin.classList.toggle('open');
+    chatBtn.classList.toggle('open', open);
+    if (badge) badge.style.display = 'none';
+    if (open) setTimeout(() => chatInp.focus(), 300);
+  });
+
+  const KB = [
+    { p: ['service','offer','provide','what do'], r: "We offer a range of supported living services:\n\n🏠 Safe, fully furnished accommodation\n👥 Dedicated key workers & mentoring\n📋 Personalised support planning\n🎓 Life skills development\n🧠 Mental health & wellbeing support\n🚀 Move-on support to independence\n\nWould you like to know more about any of these?" },
+    { p: ['refer','referral','send someone','place'], r: "Making a referral is simple:\n\n1️⃣ Submit the form on this page (or call us)\n2️⃣ We respond within 48 hours\n3️⃣ We assess and match to a suitable property\n4️⃣ Smooth move-in with support from day one\n\nScroll to the referral form below to get started." },
+    { p: ['who','support','eligible','criteria','qualify'], r: "We support adults who need a safe, stable home alongside structured support, including people with:\n\n• Mental health needs\n• History of homelessness\n• Complex social care needs\n• Learning disabilities\n\nReferrals come from social workers, local authorities, NHS teams, or self-referrals." },
+    { p: ['cost','price','fee','fund','pay','charge','free','money'], r: "Placements are typically funded through:\n\n• Local authority funding\n• Housing benefit\n• NHS continuing healthcare\n• Self-funding\n\nContact us and we'll discuss the right funding route for your situation." },
+    { p: ['contact','phone','call','email','speak','touch'], r: "You can reach us at:\n\n📞 0800 000 0000 (Mon–Fri, 9am–5pm)\n✉️ info@hartleyhope.co.uk\n\nOr use the referral form on this page — we'll get back to you within 48 hours." },
+    { p: ['location','where','area','region','based'], r: "We provide supported accommodation across the UK. Contact us with your location and we'll let you know about availability near you." },
+    { p: ['move on','move-on','leave','independent','next step'], r: "Move-on support is a core part of what we do. When a resident is ready, we help them:\n\n• Apply for social housing or private renting\n• Build a move-on plan and timeline\n• Access ongoing community support\n• Transition smoothly and confidently" },
+    { p: ['cic','company','charity','about','who are','nonprofit'], r: "Hartley Hope CIC is a Community Interest Company — we're not-for-profit. Any surplus is reinvested directly into improving our accommodation and services.\n\nWe were founded on the belief that everyone deserves a safe home and the right support to build the life they want. 💛" },
+    { p: ['hello','hi','hey','hiya','morning','afternoon'], r: "Hello! Great to hear from you. I'm here to answer any questions about Hartley Hope's supported living services. What would you like to know?" },
+    { p: ['thank','thanks','cheers','great','helpful'], r: "You're very welcome! Is there anything else I can help with? You can also call us on 0800 000 0000 or use the referral form on this page. 😊" }
+  ];
+
+  function getReply(txt) {
+    const l = txt.toLowerCase();
+    for (const item of KB) {
+      if (item.p.some(p => l.includes(p))) return item.r;
+    }
+    return "Great question — our team would be happy to help with that personally.\n\n📞 0800 000 0000\n✉️ info@hartleyhope.co.uk\n\nOr use the referral form on this page and someone will be in touch within 48 hours.";
+  }
+
+  function addMsg(txt, type) {
+    const w = document.createElement('div');
+    w.className = `msg ${type}`;
+    w.innerHTML = type === 'bot'
+      ? `<div class="msg-av">🏠</div><div class="msg-bub">${txt.replace(/\n/g,'<br>')}</div>`
+      : `<div class="msg-bub">${txt}</div>`;
+    chatMsgs.appendChild(w);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+  }
+
+  function respond(txt) {
+    qrBtns.style.display = 'none';
+    addMsg(txt, 'usr');
+    const t = document.createElement('div');
+    t.className = 'msg bot'; t.id = 'typing';
+    t.innerHTML = `<div class="msg-av">🏠</div><div class="typing-wrap"><span></span><span></span><span></span></div>`;
+    chatMsgs.appendChild(t);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    setTimeout(() => {
+      document.getElementById('typing')?.remove();
+      addMsg(getReply(txt), 'bot');
+    }, 850 + Math.random() * 400);
+  }
+
+  chatSend.addEventListener('click', () => {
+    const v = chatInp.value.trim();
+    if (!v) return;
+    chatInp.value = '';
+    respond(v);
+  });
+  chatInp.addEventListener('keydown', e => { if (e.key === 'Enter') chatSend.click(); });
+  function sendQ(t) { respond(t); }
+
+  // ── Load editable content from content.json ───
+  fetch('content.json')
+    .then(r => r.json())
+    .then(c => {
+      // Hero
+      const h = c.hero;
+      setText('[data-field="hero-eyebrow"]', h.eyebrow);
+      setText('[data-field="hero-headline"]', h.headline);
+      setText('[data-field="hero-subtext"]', h.subtext);
+      setText('[data-field="hero-btn-primary"]', h.button_primary + ' →');
+      setText('[data-field="hero-btn-secondary"]', h.button_secondary);
+
+      // About
+      const a = c.about;
+      setText('[data-field="about-eyebrow"]', a.eyebrow);
+      setText('[data-field="about-headline"]', a.headline);
+      setText('[data-field="about-p1"]', a.paragraph1);
+      setText('[data-field="about-p2"]', a.paragraph2);
+
+      // Services
+      const s = c.services;
+      setText('[data-field="services-eyebrow"]', s.eyebrow);
+      setText('[data-field="services-headline"]', s.headline);
+      setText('[data-field="services-subtext"]', s.subtext);
+      const svcGrid = document.querySelector('.services-grid');
+      if (svcGrid && s.items) {
+        svcGrid.innerHTML = s.items.map(item => `
+          <div class="svc">
+            <div class="svc-icon">${item.icon}</div>
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+          </div>`).join('');
+        // Re-observe new cards
+        svcGrid.querySelectorAll('.svc').forEach(el => {
+          el.style.opacity = '0'; el.style.transform = 'translateY(22px)';
+          el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          obs.observe(el);
+        });
+      }
+
+
+      // Contact
+      const ct = c.contact;
+      setText('[data-field="contact-phone"]', ct.phone);
+      setText('[data-field="contact-hours"]', ct.phone_hours);
+      setText('[data-field="contact-email"]', ct.email);
+      setText('[data-field="contact-address1"]', ct.address_line1);
+      setText('[data-field="contact-address2"]', ct.address_line2);
+      // Footer contact
+      setText('[data-field="footer-phone"]', ct.phone);
+      setText('[data-field="footer-hours"]', ct.phone_hours);
+      setText('[data-field="footer-email"]', ct.email);
+      setText('[data-field="footer-address1"]', ct.address_line1);
+      setText('[data-field="footer-address2"]', ct.address_line2);
+      // Footer description
+      setText('[data-field="footer-desc"]', c.footer.description);
+    })
+    .catch(() => {}); // Fail silently — static content still shows
+
+  function setText(selector, value) {
+    const el = document.querySelector(selector);
+    if (el && value) el.textContent = value;
+  }
+
+  // Netlify Identity redirect
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', user => {
+      if (!user) {
+        window.netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
